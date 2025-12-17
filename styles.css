@@ -1,0 +1,284 @@
+:root{
+  --paper:#ffffff;
+  --ink:#1a1a1a;
+  --muted:#4d4d4d;
+  --left:#153b57;
+  --leftText:#ffffff;
+  --leftMuted:rgba(255,255,255,0.88);
+  --rule:#aab4be;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:#2a2e34;
+}
+
+.page{
+  padding:40px 16px;
+  display:flex;
+  justify-content:center;
+}
+
+.cv{
+  width:min(820px,100%);
+  background:var(--left);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35),0 30px 60px rgba(0,0,0,0.25);
+  display:grid;
+  grid-template-columns:340px 1fr;
+}
+
+.left{
+  background:var(--left);
+  color:var(--leftText);
+  padding:0;
+  border-top-left-radius:18px;
+  border-bottom-left-radius:18px;
+  overflow:hidden;
+}
+
+.topbar{
+  padding:22px 22px 16px;
+  text-align:center;
+  letter-spacing:0.08em;
+}
+
+.name{
+  margin:0;
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:0.06em;
+}
+
+.title{
+  margin-top:8px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--leftMuted);
+  letter-spacing:0.22em;
+}
+
+.photoWrap{
+  padding:0 22px 18px;
+}
+
+.photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border-radius:8px;
+  background:rgba(255,255,255,0.14);
+}
+
+.leftBlock{
+  padding:18px 22px 0;
+}
+
+.leftSecHead{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.leftH{
+  margin:0 0 10px;
+  font-size:16px;
+  letter-spacing:0.16em;
+  font-weight:800;
+}
+
+.leftSecHead .chev{
+  color:#ffffff;
+  font-size:1.6em;
+  font-weight:900;
+  line-height:1;
+}
+
+.leftBlock .iconList{
+  margin-top:8px;
+}
+
+.iconList{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+  color:var(--leftMuted);
+  font-size:14px;
+}
+
+.iconItem{
+  display:grid;
+  grid-template-columns:22px 1fr;
+  align-items:start;
+  gap:10px;
+}
+
+.ico{
+  width:22px;
+  opacity:0.95;
+}
+
+.txt{
+  line-height:1.25;
+}
+
+.bulList{
+  margin:0;
+  padding-left:18px;
+  color:var(--leftMuted);
+  font-size:14px;
+  line-height:1.35;
+}
+
+.bulList li{margin:7px 0;}
+
+.right{
+  background:var(--paper);
+  padding:24px 30px;
+}
+
+.sec{
+  margin-bottom:18px;
+}
+
+.secHead{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.chev{
+  font-size:26px;
+  line-height:1;
+  font-weight:900;
+  color:#1b1b1b;
+  opacity:0.75;
+}
+
+.secHead h2{
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.12em;
+  font-weight:900;
+}
+
+.rule{
+  height:2px;
+  background:var(--rule);
+  margin:8px 0 12px;
+  opacity:0.65;
+}
+
+.p{
+  margin:0;
+  font-size:14.5px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+.job{
+  margin-top:14px;
+}
+
+.jobTitle{
+  margin:0;
+  font-size:16.5px;
+  font-weight:900;
+}
+
+.jobSub{
+  margin-top:3px;
+  font-size:13.5px;
+  color:#2c2c2c;
+  font-weight:600;
+  opacity:0.9;
+}
+
+.rightBul{
+  margin:8px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
+
+.rightBul li{margin:6px 0;}
+
+.edu{
+  display:grid;
+  gap:10px;
+}
+
+.eduRow{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+  align-items:start;
+}
+
+.eduSchool{
+  font-weight:900;
+  font-size:15px;
+}
+
+.eduProg{
+  margin-top:2px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.eduDate{
+  color:var(--muted);
+  font-size:14px;
+  white-space:nowrap;
+  padding-top:2px;
+}
+
+.link{
+  color:inherit;
+  text-decoration:none;
+}
+
+.link-underline{
+  display:inline-block;
+  width:fit-content;
+  font-weight:400;
+  background-image:linear-gradient(#fff,#fff);
+  background-position:0 100%;
+  background-size:100% 1px;
+  background-repeat:no-repeat;
+  padding-bottom:2px;
+  transition:background-size 0.15s ease,font-weight 0.15s ease;
+}
+
+.link-underline:hover{
+  background-size:100% 2px;
+  font-weight:600;
+}
+
+@media (max-width:900px){
+  .cv{grid-template-columns:1fr;}
+  .right{padding:20px 18px;}
+  .left{padding-bottom:18px;}
+}
+
+@media print{
+  body{background:#fff;}
+  .page{padding:0;}
+  .cv{
+    width:210mm;
+    box-shadow:none;
+    border-radius:0;
+    background:var(--paper);
+  }
+  .right{background:var(--paper);}
+  .left{border-radius:0;}
+}
