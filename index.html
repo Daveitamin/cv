@@ -174,28 +174,58 @@
   </main>
 
   <script>
-    // Videó: egyszer lejátszik, majd megáll az utolsó képkockán.
-    (function () {
-      const v = document.getElementById("profileVideo");
-      if (!v) return;
+  (function () {
+    const v = document.getElementById("profileVideo");
+    if (!v) return;
 
-      const tryPlay = async () => {
-        try { await v.play(); } catch (e) { /* user gesture kellhet */ }
-      };
+    const START_AT = 6.2;      // innen indul újra a video
+    const EVERY_MS = Math.floor(8000 + Math.random() * 9000);     // random időközönként 8-17mp között
 
-      v.addEventListener("ended", () => {
-        const t = Math.max(0, v.duration - 0.05);
-        v.currentTime = t;
-        v.pause();
-      });
+    let intervalId = null;
 
-      // Ha nem indul automatikusan, kattintásra induljon
-      v.addEventListener("click", () => {
-        if (v.paused) v.play();
-      });
+    function freezeAtEnd() {
+      const t = Math.max(0, v.duration - 0.05);
+      v.currentTime = t;
+      v.pause();
+    }
 
-      tryPlay();
-    })();
-  </script>
+    async function playFromStartAt() {
+      if (!isFinite(v.duration) || v.duration === 0) return;
+
+      try {
+        v.loop = false;
+        v.controls = false;
+        v.muted = true;
+        v.playsInline = true;
+
+        v.currentTime = Math.min(START_AT, Math.max(0, v.duration - 0.1));
+        await v.play();
+      } catch (e) {
+        v.addEventListener("click", () => playFromStartAt(), { once: true });
+      }
+    }
+
+    // Amikor vége -> freeze
+    v.addEventListener("ended", () => {
+      freezeAtEnd();
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          if (v.paused) playFromStartAt();
+        }, EVERY_MS);
+      }
+    });
+
+    v.addEventListener("loadedmetadata", async () => {
+      // első lejátszás
+      try { await v.play(); } catch (e) { /* oké */ }
+    });
+
+    if (v.readyState >= 1) {
+      v.play().catch(() => {});
+    }
+  })();
+</script>
+
 </body>
 </html>
+
