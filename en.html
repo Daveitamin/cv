@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dávid Vincze – Resume</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="lang-switch">
+  	<a class="lang-btn" href="index.html">HU</a>
+  	<a class="lang-btn is-active" href="en.html">EN</a>
+  </div>
+
+
+  <main class="page">
+    <section class="cv">
+
+      <!-- BAL OSZLOP -->
+      <aside class="left">
+        <div class="topbar">
+          <h1 class="name">Dávid Vincze</h1>
+          <div class="title">Computer Engineering Student</div>
+        </div>
+
+        <div class="photoWrap">
+          <!-- VIDEÓ profil 1x lejátszás, végén stop -->
+          <video
+            id="profileVideo"
+            class="photo"
+            src="assets/profile.mp4"
+            muted
+            playsinline
+            preload="auto"
+          ></video>
+
+        </div>
+
+        <section class="leftBlock">
+          <div class="secHead leftSecHead">
+  		<span class="chev">›</span>
+  		<h2 class="leftH">CONTACT</h2>
+	  </div>
+          <ul class="iconList">
+            <li class="iconItem">
+              <span class="ico">☎</span>
+              <span class="txt">+36 20 369 7924</span>
+            </li>
+            <li class="iconItem">
+              <span class="ico">✉</span>
+              <a class="txt link link-underline" href="mailto:vincze.d99@gmail.com">vincze.d99@gmail.com</a>
+            </li>
+            <li class="iconItem">
+              <span class="ico">🌐</span>
+              <a class="txt link link-underline" href="https://daveitamin.github.io/projects" target="_blank" rel="noopener noreferrer">daveitamin.github.io/projects</a>
+
+            </li>
+            <li class="iconItem">
+              <span class="ico">📍</span>
+              <span class="txt">2500 Esztergom</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="leftBlock">
+          <div class="secHead leftSecHead">
+  		<span class="chev">›</span>
+  		<h2 class="leftH">SKILLS</h2>
+	  </div>
+          <ul class="bulList">
+            <li>Fast learning ability</li>
+            <li>Problem-solving skills</li>
+            <li>Time management</li>
+            <li>Teamwork</li>
+            <li>Precision and attention to detail</li>
+          </ul>
+        </section>
+
+        <section class="leftBlock">
+          <div class="secHead leftSecHead">
+  		<span class="chev">›</span>
+  		<h2 class="leftH">LANGUAGES</h2>
+	  </div>
+          <ul class="bulList">
+            <li>English (B2)</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- JOBB OSZLOP -->
+      <section class="right">
+
+        <section class="sec">
+          <div class="secHead">
+            <span class="chev">›</span>
+            <h2>ABOUT ME</h2>
+          </div>
+          <div class="rule"></div>
+          <p class="p">
+            	I am a Computer Engineering student at Óbuda University, currently completing my fifth semester. I specialize in Cloud Service Technologies 
+		and IT Security, with a strong interest in cloud-based solutions and cybersecurity. Through university projects, I have gained hands-on experience
+		in AWS and Azure environments. I am a fast learner, precise, and reliable, and I am seeking an internship where I can gain practical 
+		experience in a real-world environment.
+          </p>
+        </section>
+
+        <section class="sec">
+          <div class="secHead">
+            <span class="chev">›</span>
+            <h2>EXPERIENCE</h2>
+          </div>
+          <div class="rule"></div>
+
+          <article class="job">
+            <h3 class="jobTitle">Cloud-Based Chatbot (Azure)</h3>
+            <div class="jobSub">Individual semester project | Óbuda University</div>
+            <ul class="rightBul">
+              <li>
+                The goal of the project was to develop a cloud-based chatbot web application 
+		capable of answering user questions based on a predefined knowledge base.
+              </li>
+              <li>
+                Technologies: HTML, CSS, JavaScript (frontend), Azure Language Service (QnA), GitHub Pages
+              </li>
+              <li>
+                During the project, I gained experience in integrating Azure-based services, connecting Azure Bot 
+		Service with Azure Language Service, and configuring API endpoints and access keys.
+              </li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3 class="jobTitle">Azure-Based Website Availability Monitor</h3>
+            <div class="jobSub">Individual semester project | Óbuda University</div>
+            <ul class="rightBul">
+              <li>
+                The goal of the project was to develop a cloud-based web application that monitors the availability 
+		and response time of specified websites.
+              </li>
+              <li>
+                Frontend technologies: HTML, CSS, JavaScript
+              </li>
+              <li>
+                Backend technologies: ASP.NET Core Web API, REST API, CORS, Azure App Service, GitHub Pages
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="sec">
+          <div class="secHead">
+            <span class="chev">›</span>
+            <h2>EDUCATION</h2>
+          </div>
+          <div class="rule"></div>
+
+          <div class="edu">
+            <div class="eduRow">
+              <div class="eduMain">
+                <div class="eduSchool">Óbuda University – NIK</div>
+                <div class="eduProg">Computer Engineering</div>
+              </div>
+              <div class="eduDate">2023-</div>
+            </div>
+
+            <div class="eduRow">
+              <div class="eduMain">
+                <div class="eduSchool">TSZC Bottyán János Szakgimnázium</div>
+              </div>
+              <div class="eduDate">2014 - 2020</div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+    </section>
+  </main>
+
+  <script>
+    // Videó: egyszer lejátszik, majd megáll az utolsó képkockán.
+    (function () {
+      const v = document.getElementById("profileVideo");
+      if (!v) return;
+
+      const tryPlay = async () => {
+        try { await v.play(); } catch (e) { }
+      };
+
+      v.addEventListener("ended", () => {
+        const t = Math.max(0, v.duration - 0.05);
+        v.currentTime = t;
+        v.pause();
+      });
+
+      // Ha nem indul automatikusan, kattintásra induljon
+      v.addEventListener("click", () => {
+        if (v.paused) v.play();
+      });
+
+      tryPlay();
+    })();
+  </script>
+
+  //Újbóli lejátszás
+  <script>
+  (function () {
+    const v = document.getElementById("profileVideo");
+    if (!v) return;
+
+    const START_AT = 6.2;      // innen induljon újra
+    const EVERY_MS = Math.floor(8000 + Math.random() * 9000);     // 8 mp-enként
+
+    let intervalId = null;
+
+    function freezeAtEnd() {
+      const t = Math.max(0, v.duration - 0.05);
+      v.currentTime = t;
+      v.pause();
+    }
+
+    async function playFromStartAt() {
+      if (!isFinite(v.duration) || v.duration === 0) return;
+
+      try {
+        v.loop = false;
+        v.controls = false;
+        v.muted = true;
+        v.playsInline = true;
+
+        // Ugrás 4.5s-ra és lejátszás a végéig
+        v.currentTime = Math.min(START_AT, Math.max(0, v.duration - 0.1));
+        await v.play();
+      } catch (e) {
+        // ha autoplay blokkolt, kattintásra induljon
+        v.addEventListener("click", () => playFromStartAt(), { once: true });
+      }
+    }
+
+    // Amikor vége, fagyjon le a legvégén
+    v.addEventListener("ended", () => {
+      freezeAtEnd();
+      // ha még nem fut az időzítő, indítsuk el
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          // csak akkor indítsuk újra, ha épp nem játszik
+          if (v.paused) playFromStartAt();
+        }, EVERY_MS);
+      }
+    });
+
+    // Biztosan legyen duration (metadata) mielőtt tekerünk
+    v.addEventListener("loadedmetadata", async () => {
+      // első lejátszás: mehet a videó elejétől, ahogy eddig
+      try { await v.play(); } catch (e) { /* oké */ }
+    });
+
+    // Ha már be van töltve a meta, próbáljuk indítani
+    if (v.readyState >= 1) {
+      v.play().catch(() => {});
+    }
+  })();
+</script>
+</body>
+</html>
